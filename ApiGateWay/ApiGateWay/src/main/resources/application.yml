@@ -1,0 +1,15 @@
+server:
+  port: 8001
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: employeeModule
+        uri: http://localhost:8089/
+        predicates:
+        - Path=/admin/alladmins/**
+      - id: consumerModule
+        uri: http://localhost:8083/
+        predicates:
+        - Path=/allorders/**
