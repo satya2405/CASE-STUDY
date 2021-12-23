@@ -50,7 +50,7 @@ public class WasherserviceApplicationTests  {
 
 	@Test
 	public void saveUserTest() {
-		WasherDetails washer = new WasherDetails(999, "sanju","manglore","sanju123");
+		WasherDetails washer = new WasherDetails(999, "suresh","manglore","sanju123");
 		when(repository.save(washer)).thenReturn(washer);
 		assertEquals(washer, service.addWasher(washer));
 	}

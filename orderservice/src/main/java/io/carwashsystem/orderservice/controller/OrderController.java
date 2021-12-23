@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.carwashsystem.orderservice.exception.ApiRequestException;
@@ -23,6 +23,7 @@ import io.carwashsystem.orderservice.model.OrderDetails;
 import io.carwashsystem.orderservice.service.OrderService1;
 
 
+@RequestMapping(value="order")
 @RestController
 public class OrderController {
 	

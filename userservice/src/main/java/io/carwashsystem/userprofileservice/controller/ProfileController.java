@@ -117,7 +117,7 @@ public class ProfileController {
 	
 	 @GetMapping("/allpacks")
 	 public List<WashPacks> getwashpacks(){
-		 String baseurl="http://localhost:7070/admin/allpacks";
+		 String baseurl="http://localhost:8091/admin/allpacks";
 		 WashPacks[] washPacks=restTemplate.getForObject(baseurl, WashPacks[].class);
 		return Arrays.asList(washPacks);
 	 }
@@ -139,7 +139,7 @@ public class ProfileController {
 	      HttpEntity<Ratings> entity = new HttpEntity<Ratings>(rating,headers);
 	      
 	      return restTemplate.exchange(
-	         "http://localhost:7070/admin/addrating", HttpMethod.POST, entity, String.class).getBody();
+	         "http://localhost:8091/admin/addrating", HttpMethod.POST, entity, String.class).getBody();
 	    }
 		
 		@PostMapping("/addorder")
@@ -148,13 +148,13 @@ public class ProfileController {
 	     headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
 	     HttpEntity<OrderDetails> entity = new HttpEntity<OrderDetails>(order,headers); 
 	     return restTemplate.exchange(
-	          "http://localhost:8081/addorder", HttpMethod.POST, entity, String.class).getBody();
+	          "http://localhost:8087/order/addorder", HttpMethod.POST, entity, String.class).getBody();
 	   }
 	
 
 		 @DeleteMapping("/cancelorder")
 		 public String deleteorder(){
-			 String baseurl="http://localhost:8081/delete/";
+			 String baseurl="http://localhost:8087/delete/";
 			 OrderDetails order=restTemplate.getForObject(baseurl, OrderDetails.class);
 			return "Your Order is successfully Canceled "+order;
 		 }

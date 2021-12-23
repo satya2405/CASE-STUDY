@@ -49,7 +49,7 @@ public class SwaggerConfig extends WebMvcConfigurerAdapter {
 	  	      "Case Study", 
 	  	      "WASHER", 
 	  	      "Terms of service", 
-	  	      new Contact("Satya", "www.project.com", "abcd.com"), 
+	  	      new Contact("Ksheera", "www.casestudy.com", "abcd.com"), 
 	  	      "Free to use", "API license URL", Collections.emptyList());
     }
 

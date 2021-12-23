@@ -1,6 +1,7 @@
 package io.carwashsystem.washservice.controller;
 
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -77,23 +78,31 @@ public class WasherController {
 
 		return ResponseEntity.ok(new AuthenticationResponse(jwt));
 	}
+	
+	
+	
+	
+	//admin can add washer details through admin service
+	
 	@PostMapping(value = "/addwasher")
 	public WasherDetails saveWasher(@Valid @RequestBody WasherDetails washer) {
 		return service.addWasher(washer);
 	}
 
+	
 	@GetMapping("/allwashers")
 	public List<WasherDetails> findAllwashers() {
 		return service. getwashers();
 	}
-
+  
+	
 	@GetMapping("/allwashers/{location}")
 	public List<WasherDetails> findwasherByAddress(@PathVariable String location) {
 		return service.getwasherbylocation(location);
 	}
 
 	@DeleteMapping(value="/delete")
-	public WasherDetails removeUser(@RequestBody WasherDetails washer) {
+	public WasherDetails removeWaser(@RequestBody WasherDetails washer) {
 		service.deletewasher(washer);
 		return washer;
 	}
@@ -102,42 +111,38 @@ public class WasherController {
 		throws ApiRequestException
 	{
 		return service.getwasher(id);
-				//return Optional.of(repo.findById(id)
-				//.orElseThrow( () -> new ApiRequestException("WASHER NOT FOUND WITH THIS ID ::")));
+				
 	}
-	/*
+	
+	
+	
+	
+	
+	
 	@GetMapping("/allratings")
 	public List<Ratings> getallratings(){
-		String baseurl="http://localhost:7070/admin/allratings";
+		String baseurl="http://localhost:8091/admin/allratings";
 		Ratings[] allratings=restTemplate.getForObject(baseurl, Ratings[].class);
 		
 		return Arrays.asList(allratings);
 	}
-	*/
-	/*@GetMapping("/allorders")
-	public List<OrderDetails> getallorders(){
-		String baseurl="http://localhost:8081/allorders";
-		OrderDetails[] allorders=restTemplate.getForObject(baseurl, OrderDetails[].class);
+
+	@GetMapping("/allorders")
+	public List<Object> getallorders(){
+		String baseurl="http://localhost:8087/order/allorders";
+		Object[] allorders=restTemplate.getForObject(baseurl, Object[].class);
 		
 		return Arrays.asList(allorders);
-	}*/
+	}
+	
+	
 
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<Object> deletewasher(@PathVariable int id)
 	{
 		return service.deletewasher(id);
 		
-		/*
-		boolean isUserExist=repo.existsById(id);
-		if(isUserExist) {
-			repo.deleteById(id);
-			return new ResponseEntity<Object>("user deleted with id "+id,HttpStatus.OK);
-		}
-		else
-		{
-			throw new ApiRequestException("CAN NOT DELETE AS WASHER NOT FOUND WITH THIS ID ::");
-		}
-		*/
+		
 	}
 
 }

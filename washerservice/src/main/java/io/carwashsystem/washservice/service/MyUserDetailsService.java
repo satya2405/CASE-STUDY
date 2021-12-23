@@ -1,5 +1,6 @@
 package io.carwashsystem.washservice.service;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,11 +21,11 @@ public class MyUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-       //WasherDetails washer=repository.findByName(name);
-       
-       //return new User(washer.getName(),washer.getPassword(),new ArrayList<>());
+    	//WasherDetails washer=repository.findByName(name);
+        
+        //return new User(washer.getName(),washer.getPassword(),new ArrayList<>());
     	
-    	 return new User("satya", "satya333",
-                 new ArrayList<>());
+    	return new User("satya", "satya333",
+               new ArrayList<>());
     }
 }
